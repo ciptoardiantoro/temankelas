@@ -143,6 +143,14 @@
     }
 }
 
+.navbar-brand img {
+    height: 300px;
+    max-width: 180px;
+    width: auto;
+    object-fit: contain;
+}
+
+
 .navbar-light .navbar-brand,
 .navbar-light a.btn {
     height: 75px;
