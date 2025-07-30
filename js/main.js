@@ -106,9 +106,9 @@
     });
 
     // 404 Page
-    setTimeout(() => {
-        window.location.href = '/';
-    }, 5000); // Redirect to 404 page after 5 seconds if the page
+    // setTimeout(() => {
+    //     window.location.href = '/';
+    // }, 5000); // Redirect to 404 page after 5 seconds if the page
 
 })(jQuery);
 
