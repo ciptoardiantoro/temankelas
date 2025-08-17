@@ -600,3 +600,10 @@
     padding: 12px 25px;
     font-size: 1rem;
 }
+/* gambar style */
+.gambar-blog1 {
+    max-width: 450px;
+    height: 480px;
+    border-radius: 10px;
+}
+ 
