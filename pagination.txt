@@ -1,0 +1,104 @@
+// Demo 4: Pagination Style
+let currentPage = 1;
+const totalPages = 5;
+
+document.querySelectorAll(".page-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const targetPage = parseInt(this.dataset.page);
+    showPage(targetPage);
+  });
+});
+
+document.getElementById("nextPage").addEventListener("click", function () {
+  if (currentPage < totalPages) {
+    showPage(currentPage + 1);
+  }
+});
+
+function showPage(pageNum) {
+  // Hide all pages
+  document.querySelectorAll(".page-content").forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show target page
+  const targetPage = document.querySelector(`.page-${pageNum}`);
+  if (targetPage) {
+    targetPage.style.display = "block";
+    targetPage.classList.add("fade-up");
+  }
+
+  // Update active button
+  document.querySelectorAll(".page-btn").forEach((btn) => {
+    btn.classList.remove("active");
+    if (parseInt(btn.dataset.page) === pageNum) {
+      btn.classList.add("active");
+    }
+  });
+
+  // Update next button
+  const nextBtn = document.getElementById("nextPage");
+  if (pageNum >= totalPages) {
+    nextBtn.disabled = true;
+    nextBtn.innerHTML = 'Last Page <i class="fas fa-check ms-1"></i>';
+  } else {
+    nextBtn.disabled = false;
+    nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right ms-1"></i>';
+  }
+
+  currentPage = pageNum;
+}
+
+
+// dibawah ini template hidden blog
+
+  <div class="container-xxl py-5">
+      <div class="container article d-none"> => article d-none ini fungsi class yang akan dipanggil oleh blog.js
+        <div class="row justify-content-left">
+          <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="course-item shadow rounded overflow-hidden">
+              <div
+                class="position-relative text-light image"
+                style="height: 250px"
+              >
+                <img
+                  src="img/matematik.jpg"
+                  alt=""
+                  class="img-fluid w-100 h-100"
+                  style="object-fit: cover"
+                />
+              </div>
+              <div class="p-3 pb-0">
+                <h3
+                  style="
+                    text-align: left;
+                    font-family: 'Times New Roman', serif;
+                  "
+                >
+                  Halo teman kelas apa kabar 3
+                </h3>
+                <small
+                  class="py-1 px-2"
+                  style="text-align: left; color: gray; display: block"
+                >
+                  <i class="fa fa-user me-2"></i> Writer by Putri Rahayu
+                </small>
+                <p style="text-align: left; color: gray">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Blanditiis quibusdam amet corrupti, sed ad quam nihil adipisci
+                  possimus dignissimos molestias, beatae temporibus totam at ab
+                  nemo veniam repudiandae, placeat debitis.
+                </p>
+              </div>
+              <div class="px-3 pb-3 text-end">
+                <a href="#" class="text-primary fw-bold fs-6">
+                  Read More <i class="fa fa-chevron-right me-2 fs-10"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
